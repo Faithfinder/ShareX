@@ -38,9 +38,10 @@
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tpEncode = new System.Windows.Forms.TabPage();
             this.tpDecode = new System.Windows.Forms.TabPage();
-            this.btnDecodeFromScreen = new System.Windows.Forms.Button();
-            this.lblDecodeResult = new System.Windows.Forms.Label();
+            this.btnDecodeFromFile = new System.Windows.Forms.Button();
             this.txtDecodeResult = new System.Windows.Forms.TextBox();
+            this.lblDecodeResult = new System.Windows.Forms.Label();
+            this.btnDecodeFromScreen = new System.Windows.Forms.Button();
             this.cmsQR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCode)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -82,7 +83,6 @@
             this.pbQRCode.ContextMenuStrip = this.cmsQR;
             this.pbQRCode.Name = "pbQRCode";
             this.pbQRCode.TabStop = false;
-            this.pbQRCode.Click += new System.EventHandler(this.pbQRCode_Click);
             // 
             // tcMain
             // 
@@ -102,12 +102,30 @@
             // 
             // tpDecode
             // 
+            this.tpDecode.Controls.Add(this.btnDecodeFromFile);
             this.tpDecode.Controls.Add(this.txtDecodeResult);
             this.tpDecode.Controls.Add(this.lblDecodeResult);
             this.tpDecode.Controls.Add(this.btnDecodeFromScreen);
             resources.ApplyResources(this.tpDecode, "tpDecode");
             this.tpDecode.Name = "tpDecode";
             this.tpDecode.UseVisualStyleBackColor = true;
+            // 
+            // btnDecodeFromFile
+            // 
+            resources.ApplyResources(this.btnDecodeFromFile, "btnDecodeFromFile");
+            this.btnDecodeFromFile.Name = "btnDecodeFromFile";
+            this.btnDecodeFromFile.UseVisualStyleBackColor = true;
+            this.btnDecodeFromFile.Click += new System.EventHandler(this.btnDecodeFromFile_Click);
+            // 
+            // txtDecodeResult
+            // 
+            resources.ApplyResources(this.txtDecodeResult, "txtDecodeResult");
+            this.txtDecodeResult.Name = "txtDecodeResult";
+            // 
+            // lblDecodeResult
+            // 
+            resources.ApplyResources(this.lblDecodeResult, "lblDecodeResult");
+            this.lblDecodeResult.Name = "lblDecodeResult";
             // 
             // btnDecodeFromScreen
             // 
@@ -116,16 +134,6 @@
             this.btnDecodeFromScreen.UseVisualStyleBackColor = true;
             this.btnDecodeFromScreen.Click += new System.EventHandler(this.btnDecodeFromScreen_Click);
             // 
-            // lblDecodeResult
-            // 
-            resources.ApplyResources(this.lblDecodeResult, "lblDecodeResult");
-            this.lblDecodeResult.Name = "lblDecodeResult";
-            // 
-            // txtDecodeResult
-            // 
-            resources.ApplyResources(this.txtDecodeResult, "txtDecodeResult");
-            this.txtDecodeResult.Name = "txtDecodeResult";
-            // 
             // QRCodeForm
             // 
             resources.ApplyResources(this, "$this");
@@ -133,7 +141,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.tcMain);
             this.Name = "QRCodeForm";
-            this.Load += new System.EventHandler(this.QRCodeForm_Load);
+            this.Shown += new System.EventHandler(this.QRCodeForm_Shown);
             this.Resize += new System.EventHandler(this.QRCodeForm_Resize);
             this.cmsQR.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbQRCode)).EndInit();
@@ -159,5 +167,6 @@
         private System.Windows.Forms.Button btnDecodeFromScreen;
         private System.Windows.Forms.TextBox txtDecodeResult;
         private System.Windows.Forms.Label lblDecodeResult;
+        private System.Windows.Forms.Button btnDecodeFromFile;
     }
 }
